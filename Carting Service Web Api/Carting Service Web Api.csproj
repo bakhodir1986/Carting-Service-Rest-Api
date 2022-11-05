@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cart Service BLL\Cart Service BLL.csproj" />
+    <ProjectReference Include="..\Cart Service DAL\Cart Service DAL.csproj" />
+  </ItemGroup>
+
 </Project>
