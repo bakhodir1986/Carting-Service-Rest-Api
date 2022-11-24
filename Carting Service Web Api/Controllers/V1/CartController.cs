@@ -1,10 +1,10 @@
 ﻿using Cart_Service_BLL;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Carting_Service_Web_Api.Controllers
+namespace Carting_Service_Web_Api.Controllers.V1
 {
     [ApiController]
-    [Route("api/cart")]
+    [Route("api/v1/cart")]
     public class CartController : ControllerBase
     {
         private readonly ICartService cartService;
@@ -28,7 +28,7 @@ namespace Carting_Service_Web_Api.Controllers
         //Returns a list of cart items instead of cart model.
         //API documentation. Each API version should have its own documentation.
 
-        [HttpGet("{cartid}/v1")]
+        [HttpGet("{cartid}")]
         public Cart GetCart([FromRoute] string cartid)
         {
             return cartService.GetCartInfo(new Guid(cartid));
@@ -68,10 +68,5 @@ namespace Carting_Service_Web_Api.Controllers
             return Ok();
         }
 
-        [HttpGet("{cartid}/v2")]
-        public IEnumerable<Item> GetCartItems([FromRoute] string cartid)
-        {
-            return cartService.GetCartInfoV2(new Guid(cartid));
-        }
     }
 }
